@@ -24,5 +24,7 @@ node6.next = node7;
 
 console.log(node5.value);
 
+console.log('hi');
+
 
 
