@@ -1,21 +1,18 @@
-var arr = [7,6,8,4,10,11,9,9,9,9]
-console.log(sortMe(arr));
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-function sortMe(arr) {
-	var count = 0;
-	for (var i = 0; i< arr.length; i++){
-		var remainLen = arr.length-i;
-		for (var j=1; j<=remainLen; j++){
-			count++;
-			if (arr[i] > arr[i+j]){
-				var temp = arr[i];
-				arr[i] = arr[i+j];
-				arr[i+j] = temp;
-			}
-		}
-	console.log(count);
-	}
-	return arr;
-	
-}	
+function bubbleSort(array) {
+  if (numbers.length===1) return numbers;
+  var maxindex = numbers.length-2;
+  for (var i=0; i<=maxindex; maxindex--) {
+    for (var j=0; j<=maxindex; j++) {
+      if (numbers[j] > numbers[j+1]) {
+        var temp = numbers[j];
+        numbers[j] = numbers[j+1];
+        numbers[j+1] = temp;
+      }
+    }
+  }
+}
 
+bubbleSort(numbers);
+console.log(numbers);
