@@ -4,12 +4,11 @@ function insertionSort(array) {
   for (var i=1; i<array.length; i++) {
     for(var j=0; j<i; j++) {
       if (array[j]>array[i]) {
-        var location = j;
         var valueOfI = array[i];
-        for (var k=i-1; k>=location; k--) {
+        for (var k=i-1; k>=j; k--) {
           array[k+1]=array[k];
         }
-        array[location]=valueOfI;
+        array[j]=valueOfI;
       }
     }
   }
@@ -17,3 +16,5 @@ function insertionSort(array) {
 
 insertionSort(numbers);
 console.log(numbers);
+
+//can use splice to achieve the same effect
