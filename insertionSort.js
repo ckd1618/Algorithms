@@ -9,6 +9,7 @@ function insertionSort(array) {
           array[k+1]=array[k];
         }
         array[j]=valueOfI;
+        break;
       }
     }
   }
