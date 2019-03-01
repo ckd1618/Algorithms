@@ -11,3 +11,4 @@ for(var i of string){
 	}
 }
 console.log(dict);
+//console.log(dict);
