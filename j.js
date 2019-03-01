@@ -11,4 +11,4 @@ for(var i of string){
 	}
 }
 console.log(dict);
-//test
+//test2
