@@ -5,5 +5,4 @@ function factIter(num) {
 	}
 	return total;
 }
-
 console.log(factIter(5));
