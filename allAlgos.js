@@ -25,7 +25,7 @@ function fibRec(num, first=0, sec=1) {
 }
 console.log(fibRec(10));
 
-//FIBONACCI RECURSIVE - STANDARD = O(2^n)
+//FIBONACCI RECURSIVE 1ARG = O(2^n)
 function fibRec2(num) {
 	if (num <= 2) return num-1;
 	return fibRec2(num-1) + fibRec2(num-2);
@@ -57,7 +57,17 @@ console.log(reverseString('yoyo mastery'));
 
 //REVERSE STRING RECURSIVE
 function reverseString(str, i=str.length-1) {
-  if (i === 0) return str[i];
+  if (i <= 0) return str[i] || '';
   return str[i] + reverseString(str, i-1);
 }
 console.log(reverseString('yoyo mastery'));
+
+//REVERSE STRING RECURSIVE 1ARG
+function reverseStringRecursive (str) {
+  if (str === "") {
+    return "";
+  } else {
+    return reverseStringRecursive(str.substr(1)) + str[0];
+  }
+}
+reverseStringRecursive('yoyo master');
