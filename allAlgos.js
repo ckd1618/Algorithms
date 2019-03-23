@@ -59,7 +59,7 @@ console.log(reverseString('yoyo mastery'));
 
 //REVERSE STRING RECURSIVE
 function reverseString(str, i=str.length-1) {
-  if (i <= 0) return str[i] || '';
+  if (i <= 0) return str;
   return str[i] + reverseString(str, i-1);
 }
 console.log(reverseString('yoyo mastery'));
@@ -70,6 +70,7 @@ function reverseStringRecursive (str) {
     return "";
   } else {
     return reverseStringRecursive(str.substr(1)) + str[0];
+    //note that str[0] is not being sent into the argument
   }
 }
 reverseStringRecursive('yoyo master');
