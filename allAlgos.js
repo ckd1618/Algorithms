@@ -19,7 +19,7 @@ console.log(factIter(5));
 
 //FIBONACCI RECURSIVE - MINE = 0(n)
 function fibRec(num, first=0, sec=1) {
-	if (num === 1) return 0;
+	if (num <= 1) return 0;
 	if (num <= 3) return first+sec;
 	return fibRec(num-1, sec, first+sec);
 }
@@ -27,17 +27,19 @@ console.log(fibRec(10));
 
 //FIBONACCI RECURSIVE 1ARG = O(2^n)
 function fibRec2(num) {
-	if (num <= 2) return num-1;
+	if (num <= 1) return 0;
+	if (num <= 3) return 1;
 	return fibRec2(num-1) + fibRec2(num-2);
 }
 console.log(fibRec2(4));
 
 //FIBONACCI ITERATIVE = O(n)
 function fibIter(num) {
-	if (num < 2) return num;
+	if (num <= 1) return 0;
+	if (num <= 3) return 1;
 	var [first,sec,sum] = [0,1,0];
 	for (var i=1; i<num; i++) {
-		var sum = first + sec;
+		sum = first + sec;
 		first = sec;
 		sec = sum;
 	}
