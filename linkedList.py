@@ -58,6 +58,19 @@ class LinkedList(object):
 			current = current.nextNode
 		current.nextNode = newNode
 
+	def reverse(self):
+		if self.head is None:
+			return
+		current = self.head
+		previous = None
+		while current is not None:
+			next = current.nextNode
+			current.nextNode = previous
+			previous = current
+			current = next
+		
+		self.head = previous
+
 
 
 
@@ -74,8 +87,10 @@ linked1.insertStart(50)
 linked1.remove(30)
 linked1.insertEnd(30)
 print(linked1.printList())
-print(linked1.size)
+# print(linked1.size)
+linked1.reverse()
+print(linked1.printList())
 
-linked2 = LinkedList()
-linked2.insertEnd(33)
-print(linked2.printList())
+# linked2 = LinkedList()
+# linked2.insertEnd(33)
+# print(linked2.printList())

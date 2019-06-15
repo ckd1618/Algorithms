@@ -1,9 +1,9 @@
-x = False
+# x = False
 
-if x == None:
-    print(True)
-else:
-    print(False)
+# if x == None:
+#     print(True)
+# else:
+#     print(False)
 
 # x = 0
 
