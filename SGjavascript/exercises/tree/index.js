@@ -21,8 +21,8 @@ class Node {
     }
 
     remove(data) {
-        this.children.filter(element => {
-            return Node.data !== data
+        this.children = this.children.filter(node => {
+            return node.data !== data;
         })
     }
 }
@@ -34,12 +34,23 @@ class Tree {
     }
 
     traverseBF(fn) {
-        if (this.root === null) return false;
-        current = this.root;
-        while true:
-            for (var i = 0; i < current.children; i++) {
+        const arr = [this.root]
+        while (arr.length) {
+            const node = arr.shift();
 
-            }
+            arr.push(...node.children);
+            fn(node);
+        }
+    }
+
+    traverseDF(fn) {
+        const arr = [this.root]
+        while (arr.length) {
+            const node = arr.shift();
+
+            arr.unshift(...node.children);
+            fn(node);
+        }
     }
 }
 
