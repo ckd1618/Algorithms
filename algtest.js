@@ -1,30 +1,31 @@
-var x = {
-    one: 1,
-    two: 2,
-    three: 3,
-    four: 4,
+function newStr(words) {
+    var arr = [];
+    var currentWord = "";
+    for (let i = 0; i <= words.length; i++) {
+        console.log(words[i])
+        if (words[i] === "," || i === words.length) {
+            console.log(currentWord);
+            arr.push(currentWord);
+            currentWord = ""
+            continue;
+        }
+
+        currentWord = currentWord + words[i];
+    }
+    console.log(arr);
+    newarr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].length != 4) {
+            newarr.push(arr[i].toUpperCase())
+        }
+    }
+    arrObj = {};
+    for (let i = 0; i < newarr.length; i++) {
+        arrObj[newarr[i]] = true;
+    }
+    arr3 = Object.keys(arrObj);
+    return arr3;
 }
-// var y = Object.entries(x);
-// var arr = ["lol", "gg"]
-// arr.push(...y) //unwraps the array y and pushes it into arr
-// console.log(arr);
 
-// for (var key in x) {
-//     console.log(key);
-// }
-
-
-// for (var i in x) {
-//     if (x.hasOwnProperty(i)) {
-//         console.log(i)
-//     }
-// }
-
-// for (var [key, val] of Object.entries(x)) {
-//     if (x.hasOwnProperty(key)) {
-//         console.log(key)
-//     }
-// }
-
-// var { one, two } = x;
-// console.log(one)
+var x = "hi,my,name,is,dach,and,i,am,fat";
+console.log(newStr(x));
