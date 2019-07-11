@@ -19,7 +19,7 @@ function join(len) {
 
 
 const { performance } = require('perf_hooks');
-var len = 10000000;
+var len = 1000000;
 var t1 = performance.now();
 // var f = join(len);
 var f = concaten(len);
