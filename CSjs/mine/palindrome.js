@@ -16,7 +16,7 @@ function isPalindrome(str) {
 function dictPalindrome(str) {
     var strHalfLen = Math.floor(str.length / 2);
     var dict1 = {};
-    for (let i = 0; i <= strHalfLen; i++) {
+    for (let i = 0; i < strHalfLen; i++) {
         if (dict1[str[i]]) {
             dict1[str[i]]++;
         } else {
@@ -24,9 +24,9 @@ function dictPalindrome(str) {
         }
     }
 
+    // i = str.length - 1; i > str.length - strHalfLen;
 
-
-    for (let i = 0; i <= strHalfLen; i++) {
+    for (let i = 0; i < strHalfLen; i++) {
         let j = str.length - 1 - i
         if (dict1[str[j]] && dict1[str[j]] > 1) {
             dict1[str[i]]--;
@@ -37,6 +37,8 @@ function dictPalindrome(str) {
         }
     }
     var dictLength = Object.keys(dict1).length;
+    // var dictLength = JSON.stringify(dict1).length;
+
     if (dictLength === 0) {
         return true;
     } else {
@@ -44,8 +46,35 @@ function dictPalindrome(str) {
     }
 }
 
+function arrPalindrome(str) {
+    var strHalfLen = Math.floor(str.length / 2);
+    var arr1 = [];
+    for (let i = 0; i < strHalfLen; i++) {
+        arr1.push(str[i]);
+    }
+
+
+
+    // i = str.length - 1; i > str.length - strHalfLen;
+    if (str.length % 2 == 0) {
+        var idxHalf = strHalfLen;
+    } else {
+        var idxHalf = ++strHalfLen;
+    }
+    // console.log(idxHalf);
+    for (let i = idxHalf; i < str.length; i++) {
+        if (str[i] == arr1[arr1.length - 1]) {
+            arr1.pop();
+        } else {
+            return false;
+        }
+    }
+    // console.log(arr1.length);
+    return true;
+}
+
 var arr = [];
-for (let i = 0; i < 1000000; i++) {
+for (let i = 0; i < 4000000; i++) {
     arr.push("a");
 }
 arr.join("");
@@ -62,10 +91,14 @@ var t2 = performance.now();
 console.log(f);
 console.log(`Time Elapsed: ${(t2 - t1) / 1000} seconds.`)
 
-
+var t1 = performance.now();
+var f = dictPalindrome(arr);
+var t2 = performance.now();
+console.log(f);
+console.log(`Time Elapsed: ${(t2 - t1) / 1000} seconds.`)
 
 var t1 = performance.now();
-var f = dictPalindrome(str);
+var f = arrPalindrome(arr);
 var t2 = performance.now();
 console.log(f);
 console.log(`Time Elapsed: ${(t2 - t1) / 1000} seconds.`)
