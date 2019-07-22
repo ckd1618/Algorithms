@@ -38,8 +38,8 @@ var fedBracket = [
     [39475, 22],
     [84200, 24]
 ];
-var income = 90000;
+var income = 120000;
 
 var state = calcStateTaxes(income, bracket);
 var fedral = calcStateTaxes(income, fedBracket);
-console.log(state, fedral, state + fedral, "=", income - state - fedral, "/", income);
+console.log(state, fedral, state + fedral, "=", income - state - fedral, "/", income, "%", (income - state - fedral) / income * 100);
